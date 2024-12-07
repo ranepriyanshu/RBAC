@@ -1,7 +1,7 @@
 import React from 'react'
 import { useState } from 'react';
 import {Container, Row, Col, Form, Button} from 'react-bootstrap'
-
+import axios from 'axios';
 const Login = () => {
 
   const [showPassword, setShowPassword] = useState(false);
@@ -39,6 +39,7 @@ const Login = () => {
 
   //function to handle form submission 
   const handleSubmit = (event) => {
+    setLoading(true);
     const form = event.currentTarget;
     event.preventDefault();
 
@@ -46,6 +47,22 @@ const Login = () => {
       
       event.stopPropagation();
     }
+
+    else{
+
+      // here handle form submission (send data to a server)
+
+      axios.post('url', formData).then((res)=>{
+        setLoading(false);
+
+        if(res.status===200){
+
+
+        }
+      })
+    }
+
+    setLoading(false);
 
     setValidated(true);
   };
