@@ -12,3 +12,7 @@ font-synthesis: none;
   -moz-osx-font-smoothing: grayscale;
 }
 
+.login-section{
+
+  min-height: calc(100vh - 56px);
+} 
